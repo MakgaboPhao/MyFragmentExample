@@ -43,6 +43,7 @@ class DrawerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
+        Context context;
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -55,6 +56,7 @@ class DrawerListAdapter extends BaseAdapter {
         TextView titleView = (TextView) view.findViewById(R.id.title);
         TextView subtitleView = (TextView) view.findViewById(R.id.subTitle);
         ImageView iconView = (ImageView) view.findViewById(R.id.icon);
+
 
         if(drawer == R.id.icon_2){
             actionIconView = (ImageView) view.findViewById(R.id.icon_2);

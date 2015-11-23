@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private DrawerLayout drawerLayout;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +35,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         drawerLayout.setDrawerListener(actionBarToggle);
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Home");
 
         ArrayList<NavItem> navArray = new ArrayList<NavItem>();
         navArray.add(new NavItem("Home", "Our home",R.drawable.ic_action_home));
         navArray.add(new NavItem("Members", "Members of provincial legislature", R.drawable.ic_action_members));
-        navArray.add(new NavItem("Documents", "Parliamentary papers", R.drawable.ic_action_publications));
+        navArray.add(new NavItem("Order Paper", "Orders of the day", R.drawable.order_paper));
+        navArray.add(new NavItem("Hansard", "Verbatim minutes of the house", R.drawable.minutes));
+        navArray.add(new NavItem("Weekly Programme", "Action plan for the week", R.drawable.ic_action_folder_2));
+        navArray.add(new NavItem("Legistalk", "Newsletter of the Legislature", R.drawable.newsletter));
         navArray.add(new NavItem("Contact Us", "Get to know about us", R.drawable.ic_action_info));
 
         navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, navArray);
+        navList.setSelector(android.R.color.holo_orange_light);
 
         DrawerListAdapter adapter = new DrawerListAdapter(this, navArray, R.layout.drawer_item);
         navList.setAdapter(adapter);
@@ -61,35 +66,58 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         switch (i){
             case 0:
                 HomeFragment homeFragment = new HomeFragment();
+                homeFragment.setActionBar(actionBar);
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, homeFragment);
                 fragmentTransaction.commit();
                 break;
             case 1:
                 MembersFragment membersFragment = new MembersFragment();
+                membersFragment.setActionBar(actionBar);
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentholder, membersFragment);
+                fragmentTransaction.replace(R.id.fragmentholder, membersFragment, "members");
                 fragmentTransaction.commit();
 
                 break;
             case 2:
-                ParliamentaryPapersFragment parliamentaryPapersFragment = new ParliamentaryPapersFragment();
+                OrderPaperFragment  orderPaperFragment = new OrderPaperFragment();
+                orderPaperFragment.setActionBar(actionBar);
+                orderPaperFragment.setFragmentManager(fragmentManager);
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentholder, parliamentaryPapersFragment);
+                fragmentTransaction.replace(R.id.fragmentholder, orderPaperFragment);
                 fragmentTransaction.commit();
                 break;
-
             case 3:
-                WeeklyProgrammeFragment weeklyProgrammeFragment = new WeeklyProgrammeFragment();
+                HansardFragment hansardFragments = new HansardFragment();
+                hansardFragments.setActionBar(actionBar);
+                hansardFragments.setFragmentManager(fragmentManager);
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentholder, weeklyProgrammeFragment);
+                fragmentTransaction.replace(R.id.fragmentholder, hansardFragments);
                 fragmentTransaction.commit();
                 break;
 
             case 4:
-                HansardFragment hansardFragment  = new HansardFragment();
+                WeeklyProgrammeFragment weeklyProgrammeFragment = new WeeklyProgrammeFragment();
+                weeklyProgrammeFragment.setActionBar(actionBar);
+                weeklyProgrammeFragment.setFragmentManager(fragmentManager);
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentholder, hansardFragment);
+                fragmentTransaction.replace(R.id.fragmentholder, weeklyProgrammeFragment);
+                fragmentTransaction.commit();
+                break;
+            case 5:
+                NewsletterFragment newsletterFragment = new NewsletterFragment();
+                newsletterFragment.setActionBar(actionBar);
+                newsletterFragment.setFragmentManager(fragmentManager);
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, newsletterFragment);
+                fragmentTransaction.commit();
+                break;
+
+            case 6:
+                AboutFragment aboutFragment = new AboutFragment();
+                aboutFragment.setActionBar(actionBar);
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, aboutFragment);
                 fragmentTransaction.commit();
                 break;
         }
@@ -99,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         actionBarToggle.syncState();
+        //fragmentManager.
     }
 
     @Override
@@ -130,11 +159,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         loadSelection(position);
 
         drawerLayout.closeDrawer(navList);
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
 }

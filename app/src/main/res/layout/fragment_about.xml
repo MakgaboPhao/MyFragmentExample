@@ -1,10 +1,50 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="za.gov.limpopoleg.myfragmentexample.AboutFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_us"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginTop="212dp"
+        android:id="@+id/openingHoursTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_margin="10dp"
+        android:text="@string/opening_hours"
+        android:id="@+id/textView"
+        android:layout_below="@+id/openingHoursTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address_caption"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:id="@+id/addressTextView"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/address"
+        android:id="@+id/textView2"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/addressTextView"
+        android:layout_alignParentLeft="true"/>
+
+</RelativeLayout>

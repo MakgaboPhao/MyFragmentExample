@@ -3,11 +3,26 @@
     android:layout_height="match_parent"
     tools:context="za.gov.limpopoleg.myfragmentexample.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_gravity="left|top" />
+        android:id="@+id/listView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/message"
+        android:visibility="gone"
+        android:text="Connection problems"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 </FrameLayout>

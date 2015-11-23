@@ -3,10 +3,11 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_home">Home</string>
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="committee_reports_fragment">Committee Reports</string>
@@ -16,12 +17,14 @@
     <string name="banner">Limpopo Legislature</string>
     <string name="home_page">http://www.google.co.za</string>
     <string name="logo">Logo</string>
+    <string name="contact_us">Opening hours</string>
+    <string name="address_caption">Address</string>
+    <string name="opening_hours">The Limpopo Legislature operates from 8:00 AM to 16:30 from Monday to Friday.</string>
+    <string name="address">Lebowakgomo Government Complex.<br /> Legislature Block<br /> Lebowakgomo, 0700</string>
 
-    <string-array name="menu">
-        <item>Home</item>
-        <item>My MPL</item>
-        <item>Chamber</item>
-        <item>Publications</item>
-        <item>Contact Us</item>
-    </string-array>
+    <string name="google_docs_url">http://docs.google.com/viewer?url=</string>
+    <string name="images_url">http://10.153.136.157/images/uploads/members/</string>
+    <string name="documents_url">http://mikeschinkel.com/motorcycles/vstrom/manual/6B-Chassis.pdf</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="no_connection">The net</string>
 </resources>

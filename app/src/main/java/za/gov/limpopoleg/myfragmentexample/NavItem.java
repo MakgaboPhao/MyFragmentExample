@@ -13,4 +13,9 @@ class NavItem {
         mSubtitle = subtitle;
         mIcon = icon;
     }
+    public NavItem(String title, String subtitle, int icon, String image) {
+        mTitle = title;
+        mSubtitle = subtitle;
+        mIcon = icon;
+    }
 }
